@@ -5,89 +5,65 @@ public class censo_demograficoo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		// Scanner para entrada de informacoes 
-				Scanner ler = new Scanner(System.in);
+				Scanner ler = new Scanner(System.in); // Scanner que ira ler as informacoes do codigo
 
-				// Declaracao das variaveis
-				int genero, idade = 0, i, igp = 0;
-				double ip=0, porcentagem;
-				float outros = 0;
-				float altura, midh = 0, maml= 0, migp = 0, contMidh = 0, contMaml = 0, contMigp = 0, contOutros = 0, contIdade = 0;
+				int genero, idade = 0, i, igp = 0; // Variaveis do codigo
+				double ip=0, porcentagem; // Variaveis do codigo
+				float outros = 0; // Variaveis do codigo
+				float altura, midh = 0, maml= 0, migp = 0, contMidh = 0, contMaml = 0, contMigp = 0, contOutros = 0, contIdade = 0; // Variaveis do codigo
 
-				// For para repeticao e contagem
-				for (i = 0; i < 1000; i++) {
+				for (i = 0; i < 1000; i++) { // sistema de repeticao para a porcentagem
 					
-					// Entrada de dados com comando sugerido: generos
-					System.out.println("Qual seu genero? Mulher - 0, Homem - 1, Outro - 2: ");
-					// Leitura do valor referente ao genero
-					genero = ler.nextInt();
+					System.out.println("Qual seu genero? Mulher - 0, Homem - 1, Outro - 2: "); // Interface que ira aparecer para o usuario imputar os dados
+					genero = ler.nextInt();// fara a leitura da nossa string
 					
-					//Estrutura de decisao caso comando sugerido for inexistente
-					if (genero > 2 || genero < 0) {
-						// Exibir dados de saida 
-						System.out.print("Comando inexistente! Reinicie o codigo!");
-						// Parar o laco de repeticao
-						break;
+					if (genero > 2 || genero < 0) { //Estrutura de decisao caso comando sugerido for inexistente
+						System.out.print("Comando inexistente! Reinicie o codigo!"); // interface que ira aparecer para o usuario
+						break;// forcar parada da repeticao
 						
-						// Decisao caso comando seja aprovado 
-					} else {
-						// Entrada de dados idade
-						System.out.println("Qual sua idade?");
-						// Leitura de dados idade 
-						idade = ler.nextInt();
-						// Somatoria da idade
-						igp = igp + idade;
-						// Contador idade
-						contIdade++;
-						// Entrada de dados altura
-						System.out.println("Qual sua altura?");
-						// Leitura de dados altura
-						altura = ler.nextFloat();
 						
-						if (idade > 18 && idade < 35) {
-							ip++;
+					} else { // a decisao caso a informacao for verdadeira
+						System.out.println("Qual sua idade?"); // Interface que ira aparecer para o usuario imputar os dados
+						idade = ler.nextInt(); // fara a leitura da string
+						igp = igp + idade; // Somatoria da idade
+						contIdade++; // contdor
+						System.out.println("Qual sua altura?"); // Interface que ira aparecer para o usuario imputar os dados
+						altura = ler.nextFloat(); // fara a leitura da nossa string
+						
+						if (idade > 18 && idade < 35) { // Sistema de decisao 
+							ip++; // somatoria da porcentagem
 						}
 						
-						// Estrutura de decisao genero 1
-						if (genero == 1) {
-							// Somatoria da idade genero 1
-							midh = midh + idade;
-							// Contagem
-							contMidh++;
+						
+						if (genero == 1) { // estrutura de decisao
+							midh = midh + idade; // Somatoria da idade genero 
+							contMidh++; // contador
 							
-							// Eestrutura de decisao genero 0
-						} else if (genero == 0) {
-							// Somatoria da altura genero 0
-							maml = maml + altura;
-							// Contagem
-							contMaml++;
+						} else if (genero == 0) { // Eestrutura de decisao
+							maml = maml + altura; // Somatoria da altura genero 
+							contMaml++;// contador
 							
-							// Estrutura de decisao genero 2
-						} else if (genero == 2) {
-							// Somatoria do valor total do genero 2
-							outros = outros + 0;
-							// Contagem
-							contOutros++;
+							
+						} else if (genero == 2) { // Estrutura de decisao 
+							outros = outros + 0; // Somatoria do valor total do genero 
+							contOutros++; // contador
 						}
 					}
 				}
-					
-				// Media das variaveis 
-				midh = igp / contIdade;
-				maml = maml / contMaml;
-				midh = midh / contMidh;
-				ip = ip; 
-				porcentagem = (ip * 0.1);
-				// Variavel recebendo valor de contagem 
-				outros = contOutros + 0;
+					 
+				midh = igp / contIdade; // media das variaveis
+				maml = maml / contMaml; // media das variaveis 
+				midh = midh / contMidh; // media das variaveis
+				ip = ip; // media das variaveis
+				porcentagem = (ip * 0.1); // media das variaveis 
+				outros = contOutros + 0; // Variavel recebendo valor da soma
 				
-				// Exibir os valores dos dados pedidos
-				System.out.printf("Media idade do grupo: %f\n", +migp);
-				System.out.printf("Media altura das mulheres: %f\n", +maml);
-				System.out.printf("Media idade dos homens: %f\n", +midh);
-				System.out.printf("Pessoas identificadas como 'outros': %f\n", + outros);
+				System.out.printf("Media idade do grupo: %f\n", +migp);  // Interface que ira aparecer para o usuario
+				System.out.printf("Media altura das mulheres: %f\n", +maml);  // Interface que ira aparecer para o usuario
+				System.out.printf("Media idade dos homens: %f\n", +midh);  // Interface que ira aparecer para o usuario
+				System.out.printf("Pessoas identificadas como 'outros': %f\n", + outros);  // Interface que ira aparecer para o usuario
 				System.out.printf("Pessoas entre 18 e 35 anos: %f\n", + ip);
-				System.out.printf("Porcentagem da idade entre 18 e 35 anos: %f\n", + porcentagem);
+				System.out.printf("Porcentagem da idade entre 18 e 35 anos: %f\n", + porcentagem);  // Interface que ira aparecer para o usuario
 
 			}
 
